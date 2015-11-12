@@ -1,0 +1,15 @@
+public class TankDrive extends OpMode {
+  DcMotor leftMotor;
+  DcMotor rightMotor;
+  
+  @Override
+  public void init(){
+    leftMotor = hardwareMap.dcMotor.get("left_drive");
+    rightMotor = hardwareMap.dcMotor.get("right_drive");
+    rightMotor.setDirection(DcMotor.Direction.REVERSE);
+  }
+  @Overide
+  public void loop() {
+    float leftY = 
+  }
+}
