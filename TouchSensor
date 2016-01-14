@@ -1,0 +1,21 @@
+public class teleOp extends OpMode{
+  DcMotor leftMotor;
+  DCMotor rightMotor;
+  TouchSensor touchSensor;
+    public void init(){
+      leftMotor = hardwareMap.dcMotor.get("left_drive");
+      rightMotor = hardwareMap.dcMotor.get("right_drive");
+      //Set reverse on right motor
+      rightMotor.setDirection(DcMotor.Direction.REVERSE);
+    }
+    public void loop(){
+      if(touchSensor.isPressed){
+        leftMotor.setPower(-0.5);
+        rightMotor.setPower(-0.75);
+      }else{
+        leftMotor.setPower(0.5);
+        rightMotor.setPower(0.5);
+      }
+      telemetry.addData("isPressed", String.valueOf(touchSensor.isPressed()));
+    }
+}
